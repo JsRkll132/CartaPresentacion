@@ -3,13 +3,30 @@ package com.example.cartapresentacion
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.scale
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.cartapresentacion.ui.theme.CartaPresentacionTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,7 +39,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    Greeting("Android","Android")
                 }
             }
         }
@@ -30,17 +47,93 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+fun Greeting(name: String,tittle:String, modifier: Modifier = Modifier) {
+    val image = painterResource(id = R.drawable.android_logo)
+    Box(modifier = Modifier,
+        contentAlignment = Alignment.Center
 
+
+    ){
+        Column(
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally,
+
+
+        ) {
+
+            Image(
+                painter = image,
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .size(190.dp, 190.dp)
+                    .align(Alignment.CenterHorizontally),
+
+
+            )
+            Text(
+                text = name,
+                fontSize = 20.sp,
+                lineHeight = 50.sp,
+                textAlign = TextAlign.Center ,
+                modifier = Modifier
+
+                    .align(alignment = Alignment.CenterHorizontally)
+
+            )
+            Text(
+                text = tittle,
+                fontSize = 12.sp,
+                modifier = Modifier
+                    .padding(3.dp)
+                    .align(alignment = Alignment.CenterHorizontally)
+            )
+
+        }
+
+    }
+    PersonalData(number = "+51 942 771 927", email =
+    "jose.apaza2@unmsm.edu.pe", dev_ ="Android Developer" ,modifier=Modifier)
+}
+@Composable
+fun PersonalData(number:String , email:String, dev_:String,modifier: Modifier){
+    Box(modifier = Modifier,
+        contentAlignment = Alignment.Center
+
+
+    ) {
+    Column (modifier=Modifier.padding(top = 340.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,){
+        Text(
+            text = number,
+            fontSize = 12.sp,
+            modifier = Modifier
+                .padding(3.dp)
+                .align(alignment = Alignment.CenterHorizontally)
+        )
+        Text(
+            text = email,
+            fontSize = 12.sp,
+            modifier = Modifier
+                .padding(3.dp)
+                .align(alignment = Alignment.CenterHorizontally)
+        )
+        Text(
+            text = dev_,
+            fontSize = 12.sp,
+            modifier = Modifier
+                .padding(3.dp)
+                .align(alignment = Alignment.CenterHorizontally)
+        )
+    }
+    }
+}
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     CartaPresentacionTheme {
-        Greeting("Android")
+        Greeting("Jose Alejandro","App Card")
+
     }
 }
