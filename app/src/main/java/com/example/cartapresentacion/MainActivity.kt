@@ -54,7 +54,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting(name: String,tittle:String, modifier: Modifier = Modifier) {
     val image = painterResource(id = R.drawable.android_logo)
-    Box(modifier = Modifier,
+    Box(modifier = Modifier.padding(100.dp),
         contentAlignment = Alignment.Center
 
 
@@ -81,7 +81,7 @@ fun Greeting(name: String,tittle:String, modifier: Modifier = Modifier) {
             )
             Text(
                 text = name,
-                fontSize = 20.sp,
+                fontSize = 35.sp,
                 lineHeight = 50.sp,
                 textAlign = TextAlign.Center ,
                 modifier = Modifier
@@ -92,7 +92,7 @@ fun Greeting(name: String,tittle:String, modifier: Modifier = Modifier) {
             )
             Text(
                 text = tittle,
-                fontSize = 12.sp,
+                fontSize = 20.sp,
                 modifier = Modifier
                     .padding(3.dp)
                     .align(alignment = Alignment.CenterHorizontally),
@@ -107,8 +107,12 @@ fun Greeting(name: String,tittle:String, modifier: Modifier = Modifier) {
 }
 @Composable
 fun PersonalData(number:String , email:String, dev_:String,modifier: Modifier){
-    Box(modifier = Modifier,
-        contentAlignment = Alignment.Center
+    Box(modifier = Modifier.
+        padding(top = 300.dp)
+            .padding(horizontal = 100.dp)
+        ,
+        contentAlignment = Alignment.Center,
+
 
 
     ) {
