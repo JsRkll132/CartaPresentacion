@@ -4,10 +4,12 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -20,6 +22,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -36,8 +39,10 @@ class MainActivity : ComponentActivity() {
             CartaPresentacionTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    modifier = Modifier.fillMaxSize()
+                    ,
+                    color = MaterialTheme.colorScheme.background,
+
                 ) {
                     Greeting("Android","Android")
                 }
@@ -67,7 +72,10 @@ fun Greeting(name: String,tittle:String, modifier: Modifier = Modifier) {
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .size(190.dp, 190.dp)
-                    .align(Alignment.CenterHorizontally),
+                    .align(Alignment.CenterHorizontally).
+                background(color = Color(0xFF7F8891)
+                ),
+
 
 
             )
@@ -78,7 +86,8 @@ fun Greeting(name: String,tittle:String, modifier: Modifier = Modifier) {
                 textAlign = TextAlign.Center ,
                 modifier = Modifier
 
-                    .align(alignment = Alignment.CenterHorizontally)
+                    .align(alignment = Alignment.CenterHorizontally),
+
 
             )
             Text(
@@ -86,7 +95,8 @@ fun Greeting(name: String,tittle:String, modifier: Modifier = Modifier) {
                 fontSize = 12.sp,
                 modifier = Modifier
                     .padding(3.dp)
-                    .align(alignment = Alignment.CenterHorizontally)
+                    .align(alignment = Alignment.CenterHorizontally),
+                color = Color(0xFF33AC2F)
             )
 
         }
@@ -110,21 +120,24 @@ fun PersonalData(number:String , email:String, dev_:String,modifier: Modifier){
             fontSize = 12.sp,
             modifier = Modifier
                 .padding(3.dp)
-                .align(alignment = Alignment.CenterHorizontally)
+                .align(alignment = Alignment.CenterHorizontally),
+            color = Color(0xFF4D65C4)
         )
         Text(
             text = email,
             fontSize = 12.sp,
             modifier = Modifier
                 .padding(3.dp)
-                .align(alignment = Alignment.CenterHorizontally)
+                .align(alignment = Alignment.CenterHorizontally),
+            color = Color(0xFF4D65C4)
         )
         Text(
             text = dev_,
             fontSize = 12.sp,
             modifier = Modifier
                 .padding(3.dp)
-                .align(alignment = Alignment.CenterHorizontally)
+                .align(alignment = Alignment.CenterHorizontally),
+            color = Color(0xFF4D65C4)
         )
     }
     }
@@ -133,6 +146,7 @@ fun PersonalData(number:String , email:String, dev_:String,modifier: Modifier){
 @Composable
 fun GreetingPreview() {
     CartaPresentacionTheme {
+
         Greeting("Jose Alejandro","App Card")
 
     }
